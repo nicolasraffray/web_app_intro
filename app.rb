@@ -15,11 +15,12 @@ get '/something' do
 end
 
 get '/random-cat' do
-  @random_name = ["Amigo", "Oscar", "Viking"].sample
+  @name = ["Amigo", "Oscar", "Viking"].sample
   erb(:index)
 end
 
 get '/named-cat' do
+  puts params
   @name = params[:name]
   erb(:index)
 end
