@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/player'
+require_relative './lib/game'
 
 #set :session_secret, 'secret'
 
@@ -12,21 +13,18 @@ class Battle < Sinatra::Base
   end
 
   post '/player-form' do
-    $player1 = Player.new(params[:player1])
-    $player2 = Player.new(params[:player2])
+    $game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
     redirect '/play'
   end
 
   get '/play' do
-    @player1 = $player1
-    @player2 = $player2
+    @game = $game
     erb :play
   end
 
   get '/Attack' do
-    @player1 = $player1
-    @player2 = $player2
-    @player1.attack(@player2)
+    @game = $game
+    @game.attack
     erb :attack
   end
 

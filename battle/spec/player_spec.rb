@@ -17,12 +17,5 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    let(:player2){double(described_class.new("name2"))}
 
-    it 'attacks a certain player and reduces their points' do
-      expect(player2).to receive(:reduce_points)
-      player.attack(player2)
-    end
-  end
 end

@@ -1,6 +1,4 @@
-<%=@player1.name%> vs. <%=@player2.name%>
-
-<br>
-<%=@player2.name%>: <%=@player2.points%>hp
-<br>
-<a href="/Attack">Attack</a>
+<h1><%=@game.player1.name%> vs. <%=@game.player2.name%></h1>
+<h3><%=@game.player2.name%>: <%=@game.player2.points%>hp</h3>
+<h3><%=@game.player1.name%>: <%=@game.player1.points%>hp</h3>
+<h2><b><a href="/Attack">Attack</a></h2></b>
