@@ -1,6 +1,6 @@
 class Game
 
-  attr_accessor :player1_turn
+  attr_reader :player1_turn
 
   def initialize(player1, player2)
     @player1 = player1
@@ -13,6 +13,13 @@ class Game
     change_turns
   end
 
+  def current_turn
+    player1_turn ? @player1 : @player2
+  end
+
+  def not_your_turn
+    player1_turn ? @player2 : @player1
+  end
 
   def player1
     @player1
@@ -23,7 +30,6 @@ class Game
   end
 
   private
-
   def change_turns
     @player1_turn = !@player1_turn
   end

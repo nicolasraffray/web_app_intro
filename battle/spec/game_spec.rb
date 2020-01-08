@@ -14,7 +14,6 @@ describe Game do
   end
 
   describe '#attack' do
-
     context 'player 1 attacks player 2' do
       it 'player 2 points reduced' do
         expect(second_player).to receive(:reduce_points)
@@ -30,4 +29,19 @@ describe Game do
       end
     end
   end
-end 
+
+  describe '#current_turn' do
+    context 'Starts as player 1 turn' do
+      it 'returns whos turn it is' do
+        expect(game.current_turn).to eq first_player
+      end
+    end
+
+    context 'Its player 2s turn' do
+      it 'Returns player2s name' do
+        allow(game).to receive(:player1_turn).and_return(false)
+        expect(game.current_turn).to eq second_player
+      end
+    end
+  end
+end
