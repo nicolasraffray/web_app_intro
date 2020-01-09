@@ -59,4 +59,11 @@ describe Game do
       end
     end
   end
+
+  describe '#game_over?' do
+    let(:second_player) { double :second_player, points: 0 }
+    it 'returns true when opponent health points are 0' do
+      expect(game.game_over?).to be true
+    end
+  end
 end

@@ -23,4 +23,8 @@ class Game
     @players[0], @players[1] = @players[1], @players[0]
   end
 
+  def game_over?
+    @players[1].points == 0 ? true : false
+  end
+
 end
