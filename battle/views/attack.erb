@@ -1,4 +1,4 @@
-<h3><%=@game.current_turn.name%> attacked <%=@game.not_your_turn.name%></h3>
+<h3><%=@game.attacker.name%> attacked <%=@game.opponent.name%></h3>
 <br>
 <form action="/change-turns" method = "post">
   <input type="submit" value="Go Back" >

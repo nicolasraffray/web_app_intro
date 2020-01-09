@@ -1,35 +1,26 @@
 class Game
-
-  attr_reader :player1_turn
+  attr_reader :players, :player1, :player2
 
   def initialize(player1, player2)
+    @players = [player1, player2]
     @player1 = player1
     @player2 = player2
-    @player1_turn = true
   end
 
-  def attack
-    player1_turn ? @player2.reduce_points : @player1.reduce_points
+  def attack(index = 1)
+    @players[index].reduce_points
   end
 
-  def current_turn
-    player1_turn ? @player1 : @player2
+  def attacker
+    @players[0]
   end
 
-  def not_your_turn
-    player1_turn ? @player2 : @player1
-  end
-
-  def player1
-    @player1
-  end
-
-  def player2
-    @player2
+  def opponent
+    @players[1]
   end
 
   def change_turns
-    @player1_turn = !@player1_turn
+    @players[0], @players[1] = @players[1], @players[0]
   end
 
 end
