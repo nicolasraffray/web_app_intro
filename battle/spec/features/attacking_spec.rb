@@ -9,15 +9,14 @@ feature 'Attacks player 2' do
   end
 
   scenario 'attacks player2' do
-    click_link 'Go Back'
+    click_button 'Go Back'
     expect(page).to have_content 'name2: 50hp'
     expect(page).to have_content 'Its name2s turn'
   end
 
   scenario 'player2 gets confirmation from attack' do
-    click_link 'Go Back'
+    click_button 'Go Back'
     click_link 'Attack'
     expect(page).to have_content 'name2 attacked name1'
-    expect(page).to have_content 'Its name1s turn'
   end
 end

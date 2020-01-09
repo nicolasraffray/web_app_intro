@@ -10,7 +10,6 @@ class Game
 
   def attack
     player1_turn ? @player2.reduce_points : @player1.reduce_points
-    change_turns
   end
 
   def current_turn
@@ -29,7 +28,6 @@ class Game
     @player2
   end
 
-  private
   def change_turns
     @player1_turn = !@player1_turn
   end

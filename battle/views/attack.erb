@@ -1,3 +1,5 @@
 <h3><%=@game.current_turn.name%> attacked <%=@game.not_your_turn.name%></h3>
 <br>
-<a href='/play'>Go Back</a>
+<form action="/change-turns" method = "post">
+  <input type="submit" value="Go Back" >
+</form>
